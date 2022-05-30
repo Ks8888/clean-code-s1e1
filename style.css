@@ -13,7 +13,8 @@ body {
 .header-image {
   width: 100%;
 }
-.header .more-inf {
+.header, 
+.more-inf {
   font-family: fantasy, cursive;
 }
 
@@ -55,7 +56,8 @@ body {
 }
 /* Heading */
 
-.subtitle,.add-item {
+.subtitle,
+.add-item {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -94,13 +96,10 @@ body {
   overflow: hidden;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
-
+  margin: 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.item.input-checkbox  {
-  margin: 0 10px;
 }
 .label {
   padding-left: 10px;
