@@ -1,15 +1,15 @@
-//Document is the DOM can be accessed in the console with document.window.
-// Tree is from the top, html, body, p etc.
+// Документ - это DOM можно получить в консоли с Document.Window. 
+ // Дерево сверху, HTML, тело, р и т. Д. 
 
-//Problem: User interaction does not provide the correct results.
-//Solution: Add interactivity so the user can manage daily tasks.
-//Break things down into smaller steps and take each step at a time.
+ // Проблема: взаимодействие с пользователем не дает правильных результатов. 
+ // Решение: Добавьте интерактивность, чтобы пользователь мог управлять ежедневными задачами. 
+ // Разбить вещи на более мелкие шаги и делать каждый шаг за раз. 
 
 
-// Event handling, user interaction is what starts the code execution.
+ // Обработка событий, взаимодействие с пользователем - это то, что запускает выполнение кода.
 
-var taskInput=document.getElementById("new-task");//Add a new task.
-var addButton=document.getElementsByTagName("button")[0];//first button
+var taskInput=document.getElementById("new-task");//Добавьте новую задачу.
+var addButton=document.getElementsByTagName("button")[0];//первая кнопка
 var incompleteTaskHolder=document.getElementById("incomplete-tasks");//ul of #incompleteTasks
 var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
 
@@ -26,29 +26,32 @@ var createNewTaskElement=function(taskString){
     //input (text)
     var editInput=document.createElement("input");//text
     //button.edit
-    var editButton=document.createElement("button");//edit button
+    var editButton=document.createElement("button");//Редактировать кнопку
 
     //button.delete
     var deleteButton=document.createElement("button");//delete button
-    var deleteButtonImg=document.createElement("img");//delete button image
+    var deleteButtonImg=document.createElement("img");//Удалить кнопку изображения
 
     label.innerText=taskString;
-    label.className='task';
+    label.className='task lable';
 
-    //Each elements, needs appending
+    //Каждый элемент нуждается в добавлении
     checkBox.type="checkbox";
     editInput.type="text";
     editInput.className="task";
 
-    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="edit";
+    editButton.innerText="Edit"; //Innertext кодирует специальные символы, HTML нет.
+    editButton.className="edit button";
 
-    deleteButton.className="delete";
+    listItem.className ="item";
+
+    deleteButton.className="delete button";
+    deleteButtonImg.className="delete-img";
     deleteButtonImg.src='./remove.svg';
     deleteButton.appendChild(deleteButtonImg);
 
 
-    //and appending.
+    //и добавить.
     listItem.appendChild(checkBox);
     listItem.appendChild(label);
     listItem.appendChild(editInput);
@@ -61,11 +64,11 @@ var createNewTaskElement=function(taskString){
 
 var addTask=function(){
     console.log("Add Task...");
-    //Create a new list item with the text from the #new-task:
+    //Создайте новый элемент списка с текстом из #New-Task:
     if (!taskInput.value) return;
     var listItem=createNewTaskElement(taskInput.value);
 
-    //Append listItem to incompleteTaskHolder
+    //Список приложения приложения
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskCompleted);
 
@@ -73,7 +76,7 @@ var addTask=function(){
 
 }
 
-//Edit an existing task.
+//Change the existing task.
 
 var editTask=function(){
     console.log("Edit Task...");
@@ -86,7 +89,7 @@ var editTask=function(){
     var label=listItem.querySelector("label");
     var editBtn=listItem.querySelector(".edit");
     var containsClass=listItem.classList.contains("edit-mode");
-    //If class of the parent is .editmode
+    // if the class of the parent.
     if(containsClass){
 
         //switch to .editmode
@@ -188,8 +191,8 @@ for (var i=0; i<completedTasksHolder.children.length;i++){
 
 
 
-// Issues with usability don't get seen until they are in front of a human tester.
+// Problems with ease of use are not visible until they become a human tester. 
 
-//prevent creation of empty tasks.
+  // prevent the creation of empty tasks. 
 
-//Change edit to save when you are in edit mode.
+  // Change editing to save when you are in editing mode.
